@@ -3,15 +3,6 @@ from http import HTTPStatus
 import pytest
 from pytest_django.asserts import assertRedirects
 
-FORM_DATA = {'text': 'Текст комментария'}
-NEW_COMMENT_TEXT = {'text': 'Обновлённый комментарий'}
-
-
-def test_home_availability_for_anonymous_user(client, home_url):
-    """Главная страница доступна анонимному пользователю."""
-    response = client.get(home_url)
-    assert response.status_code == HTTPStatus.OK
-
 
 @pytest.mark.parametrize(
     'url, client_fixture, expected_status',
